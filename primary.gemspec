@@ -13,7 +13,7 @@ Gem::Specification.new do |s|
   s.summary     = "Simple gem that will help with primary/default records"
   s.description = "This simple gem will help you with keeping default or primary record (one record that is marked as primary) - ie. default domain or language for site"
 
-  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.rdoc"]
+  s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "rails", "~> 3.2.0"
 
