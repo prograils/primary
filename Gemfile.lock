@@ -111,5 +111,6 @@ DEPENDENCIES
   factory_girl
   jquery-rails
   primary!
+  rake
   rspec-rails
   sqlite3
