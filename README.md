@@ -1,4 +1,5 @@
 #Primary
+![travis-ci](https://secure.travis-ci.org/prograils/primary.png)
 
 `primary` is simple gem/plugin that will help you ensure, that you have only one primary / default record in DB. Ie. your site can have multiple languages (stored in db), but only one of them is primary / default. 
 
