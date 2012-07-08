@@ -2,8 +2,9 @@ class Site < ActiveRecord::Base
   ## GAME CHANGERS
   is_primary :on=>:is_default
 
-  ## SCOPES
+  ## ASSOCIATIONS
   has_many :domains, :dependent=>:destroy
+  has_many :photos, :dependent=>:destroy, :as=>:photoable
 
   ## VALIDATIONS
   validates :name,

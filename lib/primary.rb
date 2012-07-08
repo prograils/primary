@@ -31,9 +31,23 @@ module Primary
       def get_primary_scope(options)
         check = self.class.where("#{options[:on].to_s} = ?", true)
         if options[:scope]
-          check = check.where("#{options[:scope].to_s} = ?", self.send(options[:scope]))
+          sc = options[:scope]
+          if sc.is_a?(Symbol) or sc.is_a?(String)
+            check = build_primary_scope(check, sc)
+          elsif sc.is_a?(Array)
+            sc.each do |scope_elem| 
+              check = build_primary_scope(check, scope_elem)
+            end
+          end
         end
         check
+      end
+
+      def build_primary_scope(scope_chain, elem)
+        if elem.is_a?(String)
+          elem = elem.to_sym
+        end
+        scope_chain.where("#{elem} = ?", self.send(elem))
       end
   end
 end
