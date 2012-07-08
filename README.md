@@ -49,6 +49,10 @@ is_primary :on=>'is_default', :scope=>'site_id'
 :scope  => 'site_id'      # scope default to different column - ie. you'll
                           # be able to define multiple languages per multiple
                           # sites and each site will have one default lang.
+                          
+                          # Scope can be defined as array of params
+:scope => ['site_id', 'language_code']
+:scope => ['polymorphic_id', 'polymorphic_type']
 ```
 
 ##Requirements
