@@ -9,8 +9,12 @@ FactoryGirl.define do
     sequence(:domain){|n| "test_domain_#{n}.test"}
     is_primary false
   end
+
   factory :photo do
     is_primary false
   end
 
+  factory :background do
+    is_primary false
+  end
 end
