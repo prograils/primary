@@ -29,7 +29,7 @@ lang_en.is_primary
 # => true
 
 lang_de = Language.create({:language=>'de'})
-lang_de.is.primary
+lang_de.is_primary
 # => false
 
 lang_de.is_primary = true
