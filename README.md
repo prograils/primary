@@ -53,7 +53,8 @@ is_primary :on=>'is_default', :scope=>'site_id'
                           # Scope can be defined as array of params
 :scope => ['site_id', 'language_code']
 :scope => ['polymorphic_id', 'polymorphic_type']
-:mark_first => false      # Do not mark first record as default
+:auto_primary_record => false   # if you don't want primary record
+                                # to be set automatically (default: true)
 ```
 
 ##Requirements

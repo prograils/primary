@@ -2,9 +2,9 @@ module Primary
   def is_primary options={}
     cattr_accessor :primary_is_primary_opts
     self.primary_is_primary_opts = options.reverse_merge({
-      :on         => :is_primary,
-      :scope      => nil,
-      :mark_first => true
+      :on                  => :is_primary,
+      :scope               => nil,
+      :auto_primary_record => true
     })
 
     before_save :primary_is_primary_mark
@@ -15,7 +15,7 @@ module Primary
     private
       def primary_is_primary_mark
         options = self.class.primary_is_primary_opts
-        return unless !!options[:mark_first]
+        return unless !!options[:auto_primary_record]
 
         check = get_primary_scope(options)
         if check.count == 0

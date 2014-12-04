@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Background do
 
-  context 'mark_first is false' do
+  context 'auto_primary_record is false' do
     it "should not be marked as default if it's first record" do
       background = FactoryGirl.build(:background)
       background.save
