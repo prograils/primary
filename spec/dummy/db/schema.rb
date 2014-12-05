@@ -11,7 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120708132456) do
+ActiveRecord::Schema.define(:version => 20141126165902) do
+
+  create_table "backgrounds", :force => true do |t|
+    t.string   "url"
+    t.boolean  "is_primary"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "domains", :force => true do |t|
     t.integer  "site_id"
