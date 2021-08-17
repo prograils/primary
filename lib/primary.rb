@@ -32,7 +32,7 @@ module Primary
       end
 
       def get_primary_scope(options)
-        check = self.class.where("#{options[:on].to_s} = ?", true)
+        check = self.class.default_scoped.where("#{options[:on].to_s} = ?", true)
         if options[:scope]
           sc = options[:scope]
           if sc.is_a?(Symbol) or sc.is_a?(String)
