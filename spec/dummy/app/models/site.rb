@@ -12,7 +12,7 @@ class Site < ActiveRecord::Base
             :uniqueness => true
 
   ## ACCESSIBLE
-  attr_accessible :is_default, :name
+  # attr_accessible :is_default, :name
 
   def to_s
     self.name

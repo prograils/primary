@@ -4,5 +4,5 @@ class Domain < ActiveRecord::Base
   belongs_to :site
   has_many :photos, :as=>:photoable
 
-  attr_accessible :domain, :is_primary
+  # attr_accessible :domain, :is_primary
 end
