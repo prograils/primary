@@ -29,5 +29,18 @@ describe Background do
 
       Background.where(is_primary: true).should == [first_background]
     end
+
+    it "should not mark another record as default after destroy current default" do
+      background_1 = FactoryGirl.build(:background)
+      background_2 = FactoryGirl.build(:background)
+      background_1.is_primary = true
+
+      [background_1, background_2].map(&:save)
+
+      background_1.is_primary.should == true
+      background_2.is_primary.should == false
+      background_1.destroy!
+      background_2.is_primary.should == false
+    end
   end
 end

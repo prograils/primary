@@ -1,6 +1,9 @@
 require 'spec_helper'
 
 describe Site do
+  before(:each) do
+    Site.delete_all
+  end
 
   it "should be marked as default if it's first record" do
     site = FactoryGirl.build(:site)
@@ -24,7 +27,17 @@ describe Site do
     site2.reload
     site1.is_default.should == false
     site2.is_default.should == true
-
   end
 
+  context "#destroy" do
+    it "should mark next record as default" do
+      site1 = FactoryGirl.create(:site)
+      site2 = FactoryGirl.create(:site)
+      site1.is_default.should == true
+      site2.is_default.should == false
+      site1.destroy!
+      site2.reload
+      site2.is_default.should == true
+    end
+  end
 end
