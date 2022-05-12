@@ -2,15 +2,12 @@ require 'spec_helper'
 
 describe Photo do
   before(:each) do
-    @site1 = FactoryGirl.create(:site, :id=>1)
-    @site2 = FactoryGirl.create(:site, :id=>2)
-    @domain = FactoryGirl.create(:domain, :site=>@site1, :id=>1)
+    @site1 = FactoryGirl.create(:site)
+    @site2 = FactoryGirl.create(:site)
+    @domain = FactoryGirl.create(:domain, :site=>@site1)
   end
 
   it "should be marked as default it it's first record for it's parent record" do
-    @site1.id.should == 1
-    @site2.id.should == 2
-    @domain.id.should == 1
     p1 = FactoryGirl.create(:photo, :photoable=>@site1)
     p1.is_primary.should == true
     p2 = FactoryGirl.create(:photo, :photoable=>@site2)
@@ -22,7 +19,7 @@ describe Photo do
     p2.is_primary.should == true
     p3.is_primary.should == true
   end
-  
+
   it "should not touch default record of different 'parents'" do
     p1 = FactoryGirl.create(:photo, :photoable=>@site1)
     p2 = FactoryGirl.create(:photo, :photoable=>@site2)

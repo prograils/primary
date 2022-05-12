@@ -2,6 +2,10 @@ require 'spec_helper'
 
 describe Site do
 
+  before(:each) do
+    Site.delete_all
+  end
+
   it "should be marked as default if it's first record" do
     site = FactoryGirl.build(:site)
     site.save
